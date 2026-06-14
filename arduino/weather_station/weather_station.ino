@@ -5,25 +5,25 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-void setup(){
+void setup() {
   Serial.begin(9600);
   dht.begin();
 }
 
-void loop(){
-  
+void loop() {
+
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
 
-  if(isnan(humidity) || isnan(temperature)){
-    Serial.ptintln("Error");
+  if (isnan(humidity) || isnan(temperature)) {
+    Serial.println("ERROR");
     delay(2000);
     return;
-}
+  }
 
   Serial.print(temperature);
   Serial.print(",");
   Serial.println(humidity);
 
-  delay(2000)
+  delay(2000);
 }
